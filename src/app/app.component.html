@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf = "onlyOdd">
+          <li class="list-group-item" *ngFor="let odd of oddNumbers"> {{ odd }}
+          </li>
+        </div>
+        <!-- <div *ngIf = "!onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor = "let even of evenNumbers"
+          > {{ even }}
+          </li>
+        </div> -->
+        <div *appUnless = "onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor = "let even of evenNumbers"
+          > {{ even }}
+          </li>
+        </div>
+      </ul>
+      <div appBasicHighlight><p>This is a dummy Text!</p></div>
+      <div appBetterHighlight [defaultColor] = " 'yellow' "
+       [highlightColor] = " 'red' "
+      ><p>This is a better dummy Text!</p></div>
+      
+
+    </div>
+  </div>
+  <div >
+    <div class="form-control btn btn-primary" appLoading  [showLoader] = "true" #element (click) = "onDelay()">Click Me!</div>
+
+  </div>
+</div>
